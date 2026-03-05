@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16.4
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - ${POSTGRES_LOCAL_PORT}:${POSTGRES_DOCKER_PORT}
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: shop
+    volumes:
+        - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
