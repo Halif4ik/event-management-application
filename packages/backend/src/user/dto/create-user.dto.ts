@@ -21,11 +21,4 @@ export class CreateUserDto {
    @IsString({message: 'Password should be string'})
    @Length(4, 20, {message: 'Password Min lenth 4 max length 20'})
    readonly password: string;
-
-   @IsPhoneNumber('UA', {message: 'Phone number should start from +380'})
-   @Length(13, 13, {message: 'Phone number should be 13 characters'})
-   readonly phoneNumber: string;
-
-   @Length(4, 20, {message: 'Address Min lenth 4 max length 20'})
-   readonly shippingAddress: string;
 }

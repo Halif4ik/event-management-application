@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
-      POSTGRES_DB: shop
+      POSTGRES_DB: event_manag
     volumes:
         - pgdata:/var/lib/postgresql/data
 volumes:

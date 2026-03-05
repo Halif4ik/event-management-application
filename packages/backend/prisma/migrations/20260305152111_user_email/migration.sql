@@ -1,7 +1,18 @@
 -- CreateTable
+CREATE TABLE "User" (
+    "id" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "fullName" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "deleteAt" TIMESTAMP(3),
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Auth" (
     "id" SERIAL NOT NULL,
-    "accessToken" TEXT NOT NULL,
+    "logined" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "userId" TEXT NOT NULL,
 
@@ -9,7 +20,7 @@ CREATE TABLE "Auth" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Auth_accessToken_key" ON "Auth"("accessToken");
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Auth_userId_key" ON "Auth"("userId");

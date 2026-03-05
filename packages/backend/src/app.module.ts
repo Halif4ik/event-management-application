@@ -5,7 +5,6 @@ import {TransformResponseInterceptor} from "@/interceptor/response.interceptor";
 import {GenRespService} from "@/gen-resp/gen-resp.service";
 import {GenRespController} from "@/gen-resp/gen-resp.controller";
 import { UserModule } from './user/user.module';
-import { NotificationModule } from '@/notification/notification.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
@@ -16,7 +15,6 @@ import { AuthModule } from './auth/auth.module';
 			isGlobal: true,
 		}),
 		UserModule,
-		NotificationModule,
 		AuthModule,
 	],
 	providers: [GenRespService,{

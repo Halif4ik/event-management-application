@@ -7,23 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum UserRole {
-  ADMIN
-  GHOST
-}
-
 model User {
-  id              String    @id @default(uuid())
-  email           String    @unique
-  fullName        String
-  password        String
-  phoneNumber     String
-  shippingAddress String
-  pinCode         Int?
-  actived         Boolean   @default(false)
-  deleteAt        DateTime?
-  Auth            Auth?
-  userRole        UserRole  @default(GHOST)
+  id       String    @id @default(uuid())
+  email    String    @unique
+  fullName String
+  password String
+  deleteAt DateTime?
+  Auth     Auth?
 }
 
 model Auth {

@@ -9,11 +9,11 @@ import {
   UseGuards
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import {VereficationUserDto} from "@/user/dto/verefication-user.dto";
 import {Auth, User} from "@prisma/client";
 import {AuthGuard} from "@nestjs/passport";
 import {UserDec} from "@/auth/decor-pass-user";
 import {TResponseAuth} from "@/auth/interface/customResponces";
+import {VereficationUserDto} from "@/user/dto/verefication-user.dto";
 
 @Controller('auth')
 export class AuthController {

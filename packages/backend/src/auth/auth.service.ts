@@ -19,7 +19,6 @@ export class AuthService {
    async login(loginDto: VereficationUserDto): Promise<TResponseAuth> {
       // return one token
       const userFromBd: User = await this.userService.getUserByEmailWithAuth(loginDto.email);
-      if (userFromBd.actived === false) new HttpException("User dosen't activated", HttpStatus.UNAUTHORIZED);
       await this.checkUserCredentials(userFromBd, loginDto);
       return this.switchLoginStatAuth(userFromBd);
    }

@@ -2,15 +2,15 @@
   "dependencies": {
     "@nestjs/mapped-types": "*"
   },
-  "name": "nest-react-expo",
+  "name": "event-manager",
   "version": "1.0.0",
   "description": "",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "lint": "npx eslint packages/backend packages/frontend packages/mobile",
-    "lint:fix": "npx eslint packages/backend packages/frontend packages/mobile --fix",
+    "lint": "npx eslint packages/backend packages/frontend",
+    "lint:fix": "npx eslint packages/backend packages/frontend --fix",
     "prepare": "husky"
   },
   "keywords": [],
