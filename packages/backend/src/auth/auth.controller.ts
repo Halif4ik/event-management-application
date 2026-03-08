@@ -20,7 +20,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   //1.Registered users can home in system
-  //Endpoint: Post /api/v1/auth/home
+  //Endpoint: Post /api/v1/auth/login
   @Post('login')
   @HttpCode(200)
   @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))

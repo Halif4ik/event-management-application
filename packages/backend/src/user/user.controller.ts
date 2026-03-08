@@ -19,8 +19,5 @@ export class UserController {
       return this.userService.createUser(createUserDto);
    }
 
-   //2.All Users with email can approve email
-   //3. Users with email can approve pin code
-   //Endpoint: Post /api/v1/user/verify-pin
 
 }

@@ -1,7 +1,7 @@
 # RADENCY Intren Project
 ## Backend
 
-For run application from  Docker Compose.yaml file, with database execute next command rebuild containers:
+For run db application from  Docker Compose.yaml file, with database execute next command rebuild containers from folder Backend :
 ```
 docker compose up -d --build
 ```
