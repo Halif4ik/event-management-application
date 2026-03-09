@@ -1,11 +1,11 @@
-FROM node:latest
+FROM node:20.6.1
 
-WORKDIR /usr/src/app
+WORKDIR /backend
 
 COPY package*.json ./
-RUN yarn
+RUN yarn install --ignore-engines
 COPY . .
 
-EXPOSE 3030
-#CMD yarn prisma generate  && npx prisma migrate deploy && yarn run start:dev
-CMD ["yarn", "start"]
+
+CMD yarn prisma generate  && npx prisma migrate deploy && yarn run start:dev
+#CMD ["yarn", "start"]

@@ -12,3 +12,5 @@ export type TJwtBody = {
 export interface IEvent {
     "event": Event | Event[]
 }
+
+

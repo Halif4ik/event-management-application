@@ -4,7 +4,7 @@ import {JwtService} from "@nestjs/jwt";
 import {ConfigService} from "@nestjs/config";
 import {PrismaService} from "@/prisma.service";
 import {Auth, User} from "@prisma/client";
-import {VereficationUserDto} from "@/user/dto/verefication-user.dto";
+import {LoginUserDto} from "@/auth/dto/login-auth.dto";
 import * as bcrypt from "bcryptjs";
 import {TJwtBody} from "@/gen-resp/interface/customResponces";
 import {TResponseAuth} from "@/auth/interface/customResponces";
@@ -16,14 +16,14 @@ export class AuthService {
                private prisma: PrismaService, private readonly configService: ConfigService) {
    }
 
-   async login(loginDto: VereficationUserDto): Promise<TResponseAuth> {
+   async login(loginDto: LoginUserDto): Promise<TResponseAuth> {
       // return one token
       const userFromBd: User = await this.userService.getUserByEmailWithAuth(loginDto.email);
       await this.checkUserCredentials(userFromBd, loginDto);
       return this.switchLoginStatAuth(userFromBd);
    }
 
-   private async checkUserCredentials(userFromBd: User | null, loginDto: VereficationUserDto): Promise<void> {
+   private async checkUserCredentials(userFromBd: User | null, loginDto: LoginUserDto): Promise<void> {
       if (!userFromBd) throw new UnauthorizedException({message: "Incorrect credentials"});
       const passwordCompare = await bcrypt.compare(loginDto.password, userFromBd.password);
       if (!passwordCompare) throw new UnauthorizedException({message: "Incorrect credentials"});
