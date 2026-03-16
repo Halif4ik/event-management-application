@@ -1,0 +1,9 @@
+.git
+.idea
+**/node_modules
+node_modules
+Dockerfile
+docker-compose.yaml
+pgdata
+packages/backend/node_modules
+packages/frontend/node_modules

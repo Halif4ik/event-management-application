@@ -27,5 +27,6 @@ services:
       - ${NODE_OUTSIZE_FOR_DOCKER_PORT}:${PORT}
     stdin_open: true
     tty: true
+   
 volumes:
   pgdata:
