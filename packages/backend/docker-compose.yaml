@@ -1,16 +1,32 @@
 version: '3.8'
 services:
-  db:
+  postgredb:
     image: postgres:16.4
     restart: unless-stopped
     env_file: ./.env
     ports:
       - ${POSTGRES_LOCAL_PORT}:${POSTGRES_DOCKER_PORT}
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: shop
+      - PGDATA=/var/lib/postgresql/data
+      - POSTGRES_PASSWORD=${POSTGRES_ROOT_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DATABASE}
     volumes:
         - pgdata:/var/lib/postgresql/data
+  #folder in docker volume : folder in server in container
+  backend:
+    depends_on:
+      - postgredb
+    build: ./
+    restart: unless-stopped
+    env_file: ./.env
+    volumes:
+      - .:/backend
+      - /backend/node_modules
+    ports:
+      - ${NODE_OUTSIZE_FOR_DOCKER_PORT}:${PORT}
+    stdin_open: true
+    tty: true
+   
 volumes:
   pgdata:

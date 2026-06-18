@@ -1,3 +1,6 @@
+import {Event} from "@prisma/client";
+
+
 export type TJwtBody = {
    uuid: string,
    email: string,
@@ -5,3 +8,9 @@ export type TJwtBody = {
    iat?: number,
    exp?: number
 }
+
+export interface IEvent {
+    "event": Event | Event[]
+}
+
+
